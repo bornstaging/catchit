@@ -1,13 +1,13 @@
 $( document ).ready(function() {
-
+    var timer = setInterval(function(){
+      --time_count;
+      time_check.text(time_count);
+    },1000);
     setTimeout(function(){
         stop_the_game();
         clearInterval(timer);
-    },61000);
-    var timer = setInterval(function(){
-      time_count--;
-      time_check.text(time_count);
-    },1000);
+        console.log(timer);
+    },60000);
     var random= Math.floor(Math.random() * 5) + 1;
     var bigSize = ["url('images/fru_1.png')",
                     "url('images/fru_2.png')",
