@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bear</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="container">
+      <!-- Score starts -->
+      <div id="score_help"> Score:
+        <span id="score">0</span> | Life:
+        <span id="life"></span><br>
+        Time[60s]:<span id="time">0</span>Sec<br> Use mouse to control
+        
+      </div>
+      <!-- Score ends -->
+      <div id="branch"></div>
+
+      <!-- Fruits starts -->
+      <div id="fruit1" class="fruit" data-bullseye='1'></div>
+      <div id="fruit2" class="fruit" data-bullseye='2'></div>
+      <div id="fruit3" class="fruit" data-bullseye='3'></div>
+      <div id="fruit4" class="fruit" data-bullseye='2'></div>
+      <div id="fruit5" class="fruit" data-bullseye='3'></div>
+      <!-- Fruits ends -->  
+
+      <!-- Basket starts -->
+      <div id="basket">
+        <img src="images/Bear_run.gif" />
+      </div>
+      <!-- Basket ends-->
+
+      <!-- Floor Block -->
+      <div id="floor"></div>
+      
+      <!-- Restart button -->
+      <button id="restart"></button>
+      
+      <!-- Tree Block -->
+      <div class="tree">
+       <!--  <img src="images/Bg_front.png" /> -->
+      </div>
+    
+    </div>
+    <script src="js/collision_detection.js"></script>
+    <script src="js/variables.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

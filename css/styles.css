@@ -1,0 +1,151 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url("../images/bg_back.png");
+    background-size:100% 100%;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+/*     margin-left: 5%; */
+    position: relative;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    
+}
+
+#score_help {
+    text-align: center;
+    font-size: 30px;
+  /*   background-color: transparent; */
+    background-color: #1fc8db;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color: white;
+    position: absolute;
+    width: 265px;
+    height:180px;
+    right:0;
+    font-family: fantasy;
+    border: 10px solid black;
+    z-index: 11;
+}
+#score,#life,#time{
+    font-size:50px;
+    text-shadow: 0 0 5px #000000, 0 0 5px white;
+    color:greenyellow;
+}
+
+.fruit {
+    position: absolute;
+    top: 18%;
+    height: 10%;
+    width: 4%;
+  /*   background-image: url("../images/fru_5.png"); */
+    z-index: 0;
+    -webkit-animation: rotation 2s infinite linear;
+}
+
+#fruit1 {
+    left: calc(15% + 8%/2 - 2%/2);
+    top:5%;
+}
+
+#fruit2 {
+    left: calc(30% + 8%/2 - 2%/2);
+    top:18%;
+}
+
+#fruit3 {
+    left: calc(45% + 8%/2 - 2%/2);
+    top:15%;
+}
+
+#fruit4 {
+    left: calc(60% + 8%/2 - 2%/2);
+    top:20%;
+}
+
+#fruit5 {
+    left: calc(75% + 8%/2 - 2%/2);
+    top:10%;
+}
+
+
+#floor {
+    position: absolute;
+    height: 7%;
+    width: 100%;
+/*     background-color: #292929; */
+    bottom: 0;
+    z-index: 10;
+}
+
+#basket {
+    height: 140px;
+    width: 70px;
+    position: absolute;
+    bottom: 30px;
+/*     background: url('../images/Bear_stop.gif'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    z-index: 11;
+}
+#basket img{
+    margin-top: -103%;
+    margin-left: -277%;
+}
+
+#score_1 {
+    position: absolute;
+    color: #424242;
+    font-size: 30px;
+    top: 45%;
+    left: 30%;
+}
+
+#restart {
+    border: 0;
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    background-color: transparent;
+    background: url("../images/restart.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+/*     -webkit-animation: rotation 2s infinite linear; */
+    top: 40%;
+    font-size: 50px;
+    font-family: fantasy;
+    display: none;
+    cursor: pointer;
+    outline: none;
+    /* text-shadow: 0 0 5px #000000, 0 0 5px white;
+    color:greenyellow */;
+    cursor: pointer;
+    z-index:20;
+}
+.tree{
+    width:100%;
+    height: 100%;
+    background: url('../images/Bg_front.png');
+    background-size: 100% 100%;  
+    z-index: 10;
+    position: relative;
+}
+/* #loading {
+    -webkit-animation: rotation 2s infinite linear;
+} */
+
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
