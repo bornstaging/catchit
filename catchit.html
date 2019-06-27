@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bear</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   </head>
+<body>
+    <div id="container">      
+      <!-- Score starts -->
+      <div id="score_help"> <!-- Score:
+        <span id="score">0</span> | Life:
+        <span id="life"></span><br>
+        <span id="time">60</span>Sec<br> Use mouse to control -->
+        <div class="score-board">
+        </div>
+        <div id="myProgress">
+          <div id="myBar"></div>
+          <i class="fa fa-clock-o"></i>
+        </div>
+      </div>
+      <!-- Score ends -->
+      <div id="branch"></div>
+
+      <!-- Fruits starts -->
+      <div id="fruit1" class="fruit" data-bullseye='1'><img id="f1" src="images/fru_5.png"/></div>
+      <div id="fruit2" class="fruit" data-bullseye='2'><img id="f2" src=""/></div>
+      <div id="fruit3" class="fruit" data-bullseye='3'><img id="f3" src=""/></div>
+      <div id="fruit4" class="fruit" data-bullseye='2'><img id="f4" src=""/></div>
+      <div id="fruit5" class="fruit" data-bullseye='3'><img id="f5" src=""/></div>
+      <!-- Fruits ends -->  
+
+      <!-- Basket starts -->
+      <div id="basket">
+        <img id="toy" src="" />
+      </div>
+      <!-- Basket ends-->
+
+      <!-- Floor Block -->
+      <div id="floor"></div>
+      
+      <!-- Restart button -->
+      <button id="restart">
+        <img src="images/restart.png"/>
+      </button>
+      
+      <!-- Tree Block -->
+      <div class="tree">
+       <!--  <img src="images/Bg_front.png" /> -->
+      </div>
+    
+    </div>
+    <script src="js/collision_detection.js"></script>
+    <script src="js/variables.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

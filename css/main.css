@@ -1,0 +1,39 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url("../images/game-bg/first-screen-bg.jpg");
+    background-size:cover;
+}
+.main_container{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.cartoons{
+    position: absolute;
+    right: 22%;
+    top: 29%;
+}
+.cartoons img{
+    display: block;
+    margin:14%;
+    cursor: pointer;
+    border-radius: 50%;    
+}
+.shadow{
+    box-shadow: #3333e8 1px 0px 1px 10px;
+}
+.play{
+    position: absolute;
+    right: 0;
+    left:0;
+    margin:0 auto;
+    text-align: center;
+    bottom: 5%;
+}
+.play img{
+    cursor: pointer;  
+}

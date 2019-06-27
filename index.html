@@ -4,53 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bear</title>
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>CatchIt</title>
 </head>
 <body>
-    <div id="container">
-      <!-- Score starts -->
-      <div id="score_help"> Score:
-        <span id="score">0</span> | Life:
-        <span id="life"></span><br>
-        <span id="time">60</span>Sec<br> Use mouse to control
-        
-      </div>
-      <!-- Score ends -->
-      <div id="branch"></div>
-
-      <!-- Fruits starts -->
-      <div id="fruit1" class="fruit" data-bullseye='1'></div>
-      <div id="fruit2" class="fruit" data-bullseye='2'></div>
-      <div id="fruit3" class="fruit" data-bullseye='3'></div>
-      <div id="fruit4" class="fruit" data-bullseye='2'></div>
-      <div id="fruit5" class="fruit" data-bullseye='3'></div>
-      <!-- Fruits ends -->  
-
-      <!-- Basket starts -->
-      <div id="basket">
-        <img src="images/Bear_run.gif" />
-      </div>
-      <!-- Basket ends-->
-
-      <!-- Floor Block -->
-      <div id="floor"></div>
-      
-      <!-- Restart button -->
-      <button id="restart">
-        <img src="images/restart.png"/>
-      </button>
-      
-      <!-- Tree Block -->
-      <div class="tree">
-       <!--  <img src="images/Bg_front.png" /> -->
-      </div>
-    
+    <div class="main_container">
+        <div class="cartoons">
+            <img id="bird" class="shadow" src="images/game-bg/bird.png" />
+            <img id="bee" class="" src="images/game-bg/bee.png" />
+            <img id="boy" class="" src="images/game-bg/boy.png" />
+        </div>
+        <div class="play">
+           <img class="btn" src="images/game-bg/play-btn.png" />
+        </div>
     </div>
-    <script src="js/collision_detection.js"></script>
-    <script src="js/variables.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("img").on("click",function(){
+                var cartoon = $(this).attr("id");
+                $(this).addClass("shadow").siblings().removeClass("shadow");
+                /* setCookie("username", cartoon, 1); */
+                if (typeof(Storage) !== "undefined") {
+                  localStorage.setItem("cartoon_id",cartoon);
+                } else {
+                   console.log("session is not working");
+                }
+            });
+            $(".btn").on("click",function(){
+                var toy = $('.shadow').attr("id");
+                if (typeof(Storage) !== "undefined") {
+                  localStorage.setItem("cartoon_id",toy);
+                } else {
+                   console.log("session is not working");
+                }
+                window.location.href="catchit.html";
+            });
+        });
+    </script>
 </body>
 </html>

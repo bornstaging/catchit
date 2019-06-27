@@ -1,85 +1,48 @@
 $( document ).ready(function() {
-    var timer = setInterval(function(){
+    var local = localStorage.getItem("cartoon_id");
+    if(local=="boy"){
+        $("#toy").attr("src","images/boy-running01.gif");
+        $("#toy").css("margin-left","-200%");
+    } else {
+        $("#toy").attr("src","images/Bear_run.gif");
+    }
+    setTimeout(function(){
+        clearInterval(timer);
+        stop_the_game();
+    },60000);
+      timer = setInterval(function(){
       --time_count;
       time_check.text(time_count);
+      $("#myBar").css("width",max_progress_bar+'%');
+      max_progress_bar = max_progress_bar - 1.66;
     },1000);
-    setTimeout(function(){
-        stop_the_game();
-        clearInterval(timer);
-        console.log(timer);
-    },60000);
-    var random= Math.floor(Math.random() * 5) + 1;
-    var bigSize = ["url('images/fru_1.png')",
-                    "url('images/fru_2.png')",
-                    "url('images/fru_3.png')",
-                    "url('images/fru_4.png')",
-                    "url('images/fru_5.png')"];
+    var random= Math.floor(Math.random() * 5) + 0;
+    var bigSize = ["images/fru_1.png",
+                    "images/fru_2.png",
+                    "images/fru_3.png",
+                    "images/fru_4.png",
+                    "images/fru_5.png"];
     function randBg(){
-        for(var i = 0;i <= 5; i++){
-            random= Math.floor(Math.random() * 5) + 1;
-            var ele = document.getElementsByClassName("fruit")[i];
-            ele.style.backgroundImage = bigSize[random];
+        for(var i = 1;i <= 5; i++){
+            random= Math.floor(Math.random() * 5) + 0;
+            $("#f"+i).attr("src",bigSize[random]);
         }
     } 
     randBg();
-    
-    
 });
 $(document).on('mousemove', function (e) {
     basket.css('left', e.pageX);
     if(e.pageX < pageX){
-       /*  basket.css("background-image","url('images/Bear_run.gif')"); */
         basket.css("transform",'scaleX(-1)');
     }
     if(pageX < e.pageX){
         basket.css("transform",'scaleX(1)');
     }
     if(pageX == e.pageX){
-      /*   basket.css("background-image","url('images/Bear_stop.gif')"); */
     }
     pageX = e.pageX;
    
 });
-
-/* var change = {
-    37: {
-      left: "-=1"
-    },
-  
-    38: {
-      top: "-=1"
-    },
-  
-    39: {
-      left: "+=1"
-    },
-  
-    40: {
-      top: "+=1"
-    },
-  }
-  $(document).one("keydown", keyDown)
-  
-  var going;
-  
-  function keyDown(e) {
-    console.log("down")
-    $(document).one("keyup", keyup)
-    var animation = change[e.which];
-    going = setInterval(keepGoing, 1);
-  
-    function keepGoing() {
-      $("#basket").css(animation)
-    }
-  
-  }
-  
-  function keyup(e) {
-    console.log("up")
-    clearInterval(going)
-    $(document).one("keydown", keyDown)
-  } */
-
 
 function fruit_down(fruit) {
     fruit_current_position = parseInt(fruit.css('top'));
@@ -89,7 +52,7 @@ function fruit_down(fruit) {
 function check_fruit_hits_floor(fruit) {
     if (collision(fruit, floor)) {
         show_bulls_eye(fruit);
-        fruit_bg = $(fruit).css('background-image');
+        fruit_bg = $(fruit).children('img').attr("src");
         banana_count = fruit_bg.search("fru_5.png");
         if(banana_count > 0){
             decrement_life();
@@ -125,7 +88,7 @@ function check_fruit_hits_basket(fruit) {
     if (collision(fruit, basket)) {
         fruit_top = parseInt(fruit.css('top'));
         if (fruit_top < basket_top) {
-            fruit_bg = $(fruit).css('background-image');
+            fruit_bg = $(fruit).children('img').attr("src");
             banana_count = fruit_bg.search("fru_5.png");
             if(banana_count > 0){
                 update_score();
@@ -143,12 +106,37 @@ function update_score() {
     }
     score_span.text(score);
     score_1.text(score);
+    var banana = "<img class='b_count' src='images/fru_5.png' />";
+    $(".score-board").append(banana);
+    if(score > 3){
+        $(".b_count").css("width","20%");
+        $(".score-board").css("bottom","5%");
+    }
+    if(score > 10){
+        $(".b_count").css("width","15%");
+    }
+    if(score > 12){
+        $(".b_count").css("width","12%");
+        $(".score-board").css("bottom","3%");
+    }
+    if(score > 24){
+        $(".b_count").css("width","10%");
+    }
+    if(score > 30){
+        $(".b_count").css("width","8%");
+    }
+    if(score > 48){
+        $(".b_count").css("width","5%");
+        $(".score-board").css("bottom","1%");
+    }
 }
 
 function stop_the_game() {
     cancelAnimationFrame(anim_id);
     restart.slideDown();
     $(".fruit, #basket").hide();
+    $("#myBar").css("width","0%");
+    clearInterval(timer);
 }
 
 restart.click(function () {
@@ -156,31 +144,18 @@ restart.click(function () {
 });
 
 function randombg(fruit_parse){
-    var fruit_temp = fruit_parse.attr('id');
-    var random = Math.floor(Math.random() * 5) + 1;
-    var bigSize = ["url('images/fru_1.png')",
-                    "url('images/fru_2.png')",
-                    "url('images/fru_3.png')",
-                    "url('images/fru_4.png')",
-                    "url('images/fru_5.png')"];
-    var ele = document.getElementById(fruit_temp);
-    ele.style.backgroundImage = bigSize[random]; 
+    var fruit_temp = fruit_parse.children('img').attr('id');
+    var random = Math.floor(Math.random() * 5) + 0;
+    var bigSize = ["images/fru_1.png",
+                    "images/fru_2.png",
+                    "images/fru_3.png",
+                    "images/fru_4.png",
+                    "images/fru_5.png"];
+    $("#"+fruit_temp).attr("src",bigSize[random]);
 }
 
 function initial(fruit){
-   /*  for(var x = 0; x <= 100 ; x++){
-        console.log("#fruit");
-        var dynamic = Math.floor(Math.random() * 100) + 1;
-        var dynamic1= Math.floor(Math.random() * 5) + 1;
-        console.log("calc("+dynamic+"% + 8%/2 - 2%/2)");
-        $("#fruit"+dynamic1).css("left", "calc("+dynamic+"% + 8%/2 - 2%/2)");
-        console.log("#fruit");
-        console.log("#fruit"+dynamic1);
-       //console.log("#fruit");
-    } */
     var dynamic = Math.floor(Math.random() * 80) + 10;
     $("#"+fruit.attr('id')).css("left", "calc("+dynamic+"% + 8%/2 - 2%/2)");
-
 }
-
 
