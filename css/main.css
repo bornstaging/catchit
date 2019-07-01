@@ -30,8 +30,8 @@ body {
 
 .cartoons{
     position: absolute;
-    right: 21%;
-    top: 26%;
+    right: 23%;
+    top: 18%;
     
 }
 .cartoons ul{padding: 0;margin: 0}
@@ -63,7 +63,9 @@ body {
     .cartoons img{max-width: 90%;}
 }
 @media (max-width:1024px){
+    .main_container{background-position: center;}
     .cartoons li{list-style: none;padding: 4% 0}
     .cartoons {    top: 16%;right:10%}
     .cartoons img{max-width: 80%;}
+
 }
