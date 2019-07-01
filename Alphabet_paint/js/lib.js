@@ -7,6 +7,7 @@ var oldy = null;
 var pixels = null;
 var letterpixels = null;
 
+$(".pyro").hide();
 $(window).resize(function(){
   setupCanvas();
   resize();
@@ -25,11 +26,11 @@ function setupCanvas() {
   cx.lineCap = 'round';
   cx.strokeStyle = 'rgb(216, 216, 42)';
   cx.font = 'bold 300px helvetica';
-  cx.fillStyle = 'rgb(225, 233, 236)';
+  cx.fillStyle = 'rgb(204, 255, 255)';
   cx.textBaseline = 'middle';
   drawletter('B');
   pixels = cx.getImageData(0, 0, c.width, c.height);
-  letterpixels = getpixelamount(255, 0, 0);
+  letterpixels = getpixelamount(204, 255, 255);
 }
 
 function drawletter(letter) {
@@ -88,6 +89,7 @@ function getpixelamount(r, g, b) {
 function pixelthreshold() {
   if (getpixelamount(216, 216, 42) / letterpixels > 0.35) {
     //alert('you got it!');
+    $(".pyro").show();
   }
 };
 

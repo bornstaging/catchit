@@ -4,27 +4,46 @@ body {
     height: 100%;
     margin: 0;
     font-family: sans-serif;
-    background-image: url("../images/game-bg/first-screen-bg.jpg");
-    background-size:cover;
+   
 }
 .main_container{
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden;  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
+
+.main_container[data-player="bird"]{
+    background-image: url("../images/game-bg/first-screen-bg.jpg");
+    
+}
+.main_container[data-player="bee"]{
+    background-image: url("../images/game-bg/full-boy.jpg");
+  
+}
+.main_container[data-player="boy"]{
+    background-image: url("../images/game-bg/full-boy.jpg");    
+}
+
 .cartoons{
     position: absolute;
-    right: 22%;
-    top: 29%;
+    right: 21%;
+    top: 26%;
+    
 }
-.cartoons img{
+.cartoons ul{padding: 0;margin: 0}
+.cartoons img{  
     display: block;
-    margin:14%;
+    margin: 3% 0;
     cursor: pointer;
-    border-radius: 50%;    
+    border-radius: 50%;   
 }
+.cartoons li{list-style: none;padding: 3% 0}
 .shadow{
-    box-shadow: #3333e8 1px 0px 1px 10px;
+    box-shadow: #3333e8 1px 0px 1px 5px;
 }
 .play{
     position: absolute;
@@ -36,4 +55,15 @@ body {
 }
 .play img{
     cursor: pointer;  
+}
+
+@media (max-width:1360px){
+    .cartoons li{list-style: none;padding: 4% 0}
+    .cartoons {     right: 13%;   top: 20%;}
+    .cartoons img{max-width: 90%;}
+}
+@media (max-width:1024px){
+    .cartoons li{list-style: none;padding: 4% 0}
+    .cartoons {    top: 16%;right:10%}
+    .cartoons img{max-width: 80%;}
 }

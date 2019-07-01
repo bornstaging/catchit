@@ -139,7 +139,9 @@ i.fa-clock-o {
     border: 0;
     position: absolute;
     top: 40%;
-    right:32%;
+    right:0;
+    left:0;
+    width:100%;
     background-color: transparent;
     display: none;
     cursor: pointer;
@@ -147,6 +149,11 @@ i.fa-clock-o {
     cursor: pointer;
     z-index:20;
 }
+
+#restart img{
+    width:50%;
+}
+
 .tree{
     width:100%;
     height: 100%;
@@ -162,5 +169,24 @@ i.fa-clock-o {
     }
     to {
             -webkit-transform: rotate(359deg);
+    }
+}
+
+@media screen and (max-width:1360px){
+    #score_help{
+        margin-top: -10%;
+    }
+}
+
+@media screen and (max-width:1024px){
+    #score_help{
+        margin-top: -17%;
+    }
+}
+
+@media screen and (max-width:768px){
+    #score_help{
+        width: 29%;
+        height: 42.5%;
     }
 }

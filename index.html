@@ -9,11 +9,20 @@
     <title>CatchIt</title>
 </head>
 <body>
-    <div class="main_container">
+    <div class="main_container" data-player="bird">
+           
         <div class="cartoons">
-            <img id="bird" class="shadow" src="images/game-bg/bird.png" />
-            <img id="bee" class="" src="images/game-bg/bee.png" />
-            <img id="boy" class="" src="images/game-bg/boy.png" />
+            <ul>
+                <li>
+                    <img id="bird" class="gamebg shadow"  data-player="bird" src="images/game-bg/bird.png" />
+                </li>
+                <li>
+                    <img id="bee"  class="gamebg" data-player="bee"   src="images/game-bg/bee.png" />
+                </li>
+                <li>
+                    <img id="boy"  class="gamebg " data-player="boy"  src="images/game-bg/boy.png" />
+                </li>
+            </ul>           
         </div>
         <div class="play">
            <img class="btn" src="images/game-bg/play-btn.png" />
@@ -21,15 +30,18 @@
     </div>
     <script>
         $(document).ready(function(){
-            $("img").on("click",function(){
-                var cartoon = $(this).attr("id");
-                $(this).addClass("shadow").siblings().removeClass("shadow");
+            $(".cartoons img").on("click",function(){
+                var cartoon = $(this).attr("data-player");
+                $('.cartoons img').removeClass("shadow");  
+                $(this).addClass("shadow")                
                 /* setCookie("username", cartoon, 1); */
                 if (typeof(Storage) !== "undefined") {
-                  localStorage.setItem("cartoon_id",cartoon);
+                  localStorage.setItem("cartoon_data-player",cartoon);
                 } else {
                    console.log("session is not working");
                 }
+                $('.main_container').attr('data-player', cartoon);
+
             });
             $(".btn").on("click",function(){
                 var toy = $('.shadow').attr("id");
@@ -40,6 +52,7 @@
                 }
                 window.location.href="catchit.html";
             });
+            
         });
     </script>
 </body>

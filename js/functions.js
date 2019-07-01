@@ -30,6 +30,7 @@ $( document ).ready(function() {
     } 
     randBg();
 });
+
 $(document).on('mousemove', function (e) {
     basket.css('left', e.pageX);
     if(e.pageX < pageX){
@@ -38,11 +39,12 @@ $(document).on('mousemove', function (e) {
     if(pageX < e.pageX){
         basket.css("transform",'scaleX(1)');
     }
-    if(pageX == e.pageX){
-    }
+  /*   if(pageX == e.pageX){
+    } */
     pageX = e.pageX;
    
 });
+
 $(document).on('touchmove',function(e){
     console.log("touch");
     touch = e.touches[0].clientX;
@@ -53,9 +55,33 @@ $(document).on('touchmove',function(e){
     if(pageX < touch){
         basket.css("transform",'scaleX(1)');
     }
-    if(pageX == touch){
-    }
+   /*  if(pageX == touch){
+    } */
     pageX = touch;
+});
+
+$(document).keydown(function(e){ 
+    var position = basket.position(); 
+    //console.log(position.right); 
+    //console.log(window.innerWidth)
+    switch (e.which){
+    case 37: 
+    if(position.left > 0){
+    $("#basket").finish().animate({
+    left: "-=50"
+    });
+    basket.css("transform",'scaleX(-1)');
+    } 
+    break; 
+    case 39: 
+    if(position.left < window.innerWidth){
+    $("#basket").finish().animate({
+    left: "+=50" 
+    }); 
+    basket.css("transform",'scaleX(1)'); 
+    } 
+    break; 
+    }
 });
 
 function fruit_down(fruit) {
