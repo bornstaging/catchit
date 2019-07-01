@@ -23,6 +23,7 @@ banana_count = 0;
 temp_pageX = 0;
 score = 0,
 life = 20,
+touch = 0,
 speed = 5,
 timer = 0,
 max_speed = 15,

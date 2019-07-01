@@ -43,6 +43,20 @@ $(document).on('mousemove', function (e) {
     pageX = e.pageX;
    
 });
+$(document).on('touchmove',function(e){
+    console.log("touch");
+    touch = e.touches[0].clientX;
+    basket.css('left', touch);
+    if(touch < pageX){
+        basket.css("transform",'scaleX(-1)');
+    }
+    if(pageX < touch){
+        basket.css("transform",'scaleX(1)');
+    }
+    if(pageX == touch){
+    }
+    pageX = touch;
+});
 
 function fruit_down(fruit) {
     fruit_current_position = parseInt(fruit.css('top'));

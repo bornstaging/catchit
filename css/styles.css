@@ -112,17 +112,17 @@ i.fa-clock-o {
 }
 
 #basket {
-    height: 140px;
+    height: 30px;
     width: 70px;
     position: absolute;
-    bottom: 30px;
+    bottom: 130px;
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     z-index: 11;
 }
 #basket img{
-    margin-top: -103%;
+    margin-top: -107%;
     margin-left: -277%;
     width:390%;
 }
