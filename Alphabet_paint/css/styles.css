@@ -15,11 +15,18 @@ canvas {
 .chalkboard{
     text-align: center;
 }
+.mod{
+  position: relative;
+}
 .bGif{
     position: absolute;
-    top: 23%;
-    right: 29.5%;
-    width: 43%;
+    top: 35.5%;
+    right: 0;
+    width: 174px;
+    left: 0;
+    margin: 0 auto;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
   .pyro{
@@ -208,3 +215,8 @@ canvas {
       margin-top: 30%;
       margin-left: 80%; } }
   
+  @media screen and (max-width:1440px){
+    .bGif {
+      top: 34%;
+    }
+  }
