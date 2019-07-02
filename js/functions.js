@@ -62,8 +62,6 @@ $(document).on('touchmove',function(e){
 
 $(document).keydown(function(e){ 
     var position = basket.position(); 
-    //console.log(position.right); 
-    //console.log(window.innerWidth)
     switch (e.which){
     case 37: 
     if(position.left > 0){

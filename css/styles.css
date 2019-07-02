@@ -103,6 +103,7 @@ i.fa-clock-o {
 }
 
 
+
 #floor {
     position: absolute;
     height: 7%;
@@ -176,12 +177,20 @@ i.fa-clock-o {
     #score_help{
         margin-top: -10%;
     }
+    /* .fruit > img{
+        width:100%;
+    } */
 }
 
 @media screen and (max-width:1024px){
     #score_help{
         margin-top: -17%;
     }
+    .fruit {
+        height: 15%;
+        width: 8%;
+    }
+    
 }
 
 @media screen and (max-width:768px){
@@ -189,4 +198,17 @@ i.fa-clock-o {
         width: 29%;
         height: 42.5%;
     }
+    #myProgress{
+        margin-top:199%;
+    }
+    i.fa-clock-o{
+        bottom:-9.5%;
+    }
+    .fruit {
+        height: 8%;
+        width: 10%;
+    }
 }
+/* @media screen and (max-width:767px){
+
+} */
