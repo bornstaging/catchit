@@ -174,9 +174,9 @@ i.fa-clock-o {
 }
 
 @media screen and (max-width:1360px){
-    #score_help{
+  /*   #score_help{
         margin-top: -10%;
-    }
+    } */
     /* .fruit > img{
         width:100%;
     } */
@@ -194,16 +194,16 @@ i.fa-clock-o {
 }
 
 @media screen and (max-width:768px){
-    #score_help{
+    /* #score_help{
         width: 29%;
         height: 42.5%;
-    }
-    #myProgress{
-        margin-top:190%;
+    } */
+ /*    #myProgress{
+        margin-top:150%;
     }
     i.fa-clock-o{
         bottom:-9.5%;
-    }
+    } */
     .fruit {
         height: 8%;
         width: 10%;
