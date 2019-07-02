@@ -116,13 +116,25 @@ function onmousemove(ev) {
   }
 };
 
+$(document).on('touchmove',function(e){
+  onmousemove(e);
+});
+$(document).on('touchend',function(e){
+  onmousedown(e);
+});
+$(document).on('touchstart',function(e){
+  onmouseup(e);
+});
+$(".bGif").on('touchstart',function(){
+  $(".bGif").hide();
+});
 c.addEventListener('mousedown', onmousedown, false);
 c.addEventListener('mouseup', onmouseup, false);
 c.addEventListener('mousemove', onmousemove, false);
 
-c.addEventListener('touchend', onmousedown, false);
+/* c.addEventListener('touchend', onmousedown, false);
 c.addEventListener('touchstart', onmouseup, false);
-c.addEventListener('touchmove', onmousemove, false);
+c.addEventListener('touchmove', onmousemove, false); */
 
 setupCanvas();
 $(".bGif").on("click", function(){
