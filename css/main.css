@@ -16,8 +16,8 @@ body {
     
 }
 
-.main_container[data-player="bird"]{
-    background-image: url("../images/game-bg/first-screen-bg.jpg");
+.main_container[data-player="bear"]{
+    background-image: url("../images/game-bg/bear-bg.gif");
     
 }
 .main_container[data-player="bee"]{
@@ -25,7 +25,7 @@ body {
   
 }
 .main_container[data-player="boy"]{
-    background-image: url("../images/game-bg/full-boy.jpg");    
+    background-image: url("../images/game-bg/boy-bg.gif");    
 }
 
 .cartoons{
