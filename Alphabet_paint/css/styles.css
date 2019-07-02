@@ -218,9 +218,14 @@ canvas {
   
   @media screen and (max-width:1440px){
     .bGif {
-      top: 35%;
+      top: 26%;
     }
   }
+  /* @media screen and (max-width:440px){
+    .bGif {
+      top: 26%;
+    }
+  } */
 
 /*   @media screen and (max-width:768px){
     .bGif {
