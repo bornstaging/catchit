@@ -98,11 +98,13 @@ function onmousedown(ev) {
   ev.preventDefault();
 };
 function onmouseup(ev) {
+  alert("start");
   mousedown = false;
   pixelthreshold();
   ev.preventDefault();
 };
 function onmousemove(ev) {
+  alert("move");
   if(ev.type === "touchmove"){
       var x = ev.touches[0].clientX;
       var y = ev.touches[0].clientY;
@@ -116,17 +118,17 @@ function onmousemove(ev) {
   }
 };
 
-$(document).on('touchmove',function(e){
+/* $("canvas").on('touchmove',function(e){
   e.preventDefault();
   alert("hi");
   onmousemove(e);
   alert("bye");
 });
-$(document).on('touchend',function(e){
+$("canvas").on('touchend',function(e){
   e.preventDefault();
   onmousedown(e);
 });
-$(document).on('touchstart',function(e){
+$("canvas").on('touchstart',function(e){
   alert("hi");
   e.preventDefault();
   onmouseup(e);
@@ -134,14 +136,14 @@ $(document).on('touchstart',function(e){
 });
 $(".bGif").on('touchstart',function(){
   $(".bGif").hide();
-});
+}); */
 c.addEventListener('mousedown', onmousedown, false);
 c.addEventListener('mouseup', onmouseup, false);
 c.addEventListener('mousemove', onmousemove, false);
 
-/* c.addEventListener('touchend', onmousedown, false);
+c.addEventListener('touchend', onmousedown, false);
 c.addEventListener('touchstart', onmouseup, false);
-c.addEventListener('touchmove', onmousemove, false); */
+c.addEventListener('touchmove', onmousemove, false);
 
 setupCanvas();
 $(".bGif").on("click", function(){
