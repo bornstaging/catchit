@@ -5,7 +5,8 @@
     font-family: helvetica,arial,sans-serif;
     background-image: url('../images/chalkboard_.jpg');
     background-size: 100% 100%;
-
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 canvas {
     display: block;

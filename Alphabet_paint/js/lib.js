@@ -117,12 +117,15 @@ function onmousemove(ev) {
 };
 
 $(document).on('touchmove',function(e){
+  e.preventDefault();
   onmousemove(e);
 });
 $(document).on('touchend',function(e){
+  e.preventDefault();
   onmousedown(e);
 });
 $(document).on('touchstart',function(e){
+  e.preventDefault();
   onmouseup(e);
 });
 $(".bGif").on('touchstart',function(){
