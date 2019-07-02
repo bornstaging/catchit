@@ -118,15 +118,19 @@ function onmousemove(ev) {
 
 $(document).on('touchmove',function(e){
   e.preventDefault();
+  alert("hi");
   onmousemove(e);
+  alert("bye");
 });
 $(document).on('touchend',function(e){
   e.preventDefault();
   onmousedown(e);
 });
 $(document).on('touchstart',function(e){
+  alert("hi");
   e.preventDefault();
   onmouseup(e);
+  alert("bye");
 });
 $(".bGif").on('touchstart',function(){
   $(".bGif").hide();
