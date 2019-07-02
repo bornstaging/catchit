@@ -98,14 +98,14 @@ function onmousedown(ev) {
   ev.preventDefault();
 };
 function onmouseup(ev) {
-  alert("start");
+ // alert("start");
   mousedown = false;
   pixelthreshold();
   ev.preventDefault();
 };
 function onmousemove(ev) {
-  alert("move");
   if(ev.type === "touchmove"){
+    alert("move");
       var x = ev.touches[0].clientX;
       var y = ev.touches[0].clientY;
       paint(x, y);
