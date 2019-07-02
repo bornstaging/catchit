@@ -107,7 +107,7 @@ function onmousemove(ev) {
   if(ev.type === "touchmove"){
       var x = ev.touches[0].clientX;
       var y = ev.touches[0].clientY;
-      alert(x ,"--" ,y);
+      alert(x + "-----" + y);
       paint(x, y);
   } else {
       var x = ev.clientX;
