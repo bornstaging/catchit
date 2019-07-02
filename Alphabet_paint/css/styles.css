@@ -21,7 +21,7 @@ canvas {
 }
 .bGif{
     position: absolute;
-    top: 35.5%;
+    top: 36%;
     right: 0;
     width: 174px;
     left: 0;
@@ -218,7 +218,7 @@ canvas {
   
   @media screen and (max-width:1440px){
     .bGif {
-      top: 34%;
+      top: 35%;
     }
   }
 
@@ -227,7 +227,7 @@ canvas {
       top: 37%;
     }
   } */
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+ /*  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
     .bGif {
       top: 37%;
     }
@@ -236,4 +236,4 @@ canvas {
     .bGif {
       top: 33%;
     }
-  }
+  } */
