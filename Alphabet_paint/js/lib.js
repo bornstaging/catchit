@@ -7,7 +7,10 @@ var oldy = null;
 var pixels = null;
 var letterpixels = null;
 
+var gifX, gifY
+
 $(".pyro").hide();
+
 $(window).resize(function(){
   setupCanvas();
   resize();
@@ -18,7 +21,7 @@ function resize(){
   gif.width = window.innerWidth;
   gif.height = window.innerHeight;
 }
-
+ 
 function setupCanvas() {
   c.height = window.innerHeight;
   c.width = window.innerWidth;
@@ -33,11 +36,96 @@ function setupCanvas() {
   letterpixels = getpixelamount(204, 255, 255);
 }
 
+var measureFontHeight = function (canvas, fontStyle) {
+    var context = canvas.getContext("2d");
+
+    var sourceWidth = canvas.width;
+    var sourceHeight = canvas.height;
+
+    context.font = fontStyle;
+    
+    // place the text somewhere
+    context.textAlign = "left";
+    context.textBaseline = "top";
+    context.fillText("a", 25, 5);
+
+    // returns an array containing the sum of all pixels in a canvas
+    // * 4 (red, green, blue, alpha)
+    // [pixel1Red, pixel1Green, pixel1Blue, pixel1Alpha, pixel2Red ...]
+    var data = context.getImageData(0, 0, sourceWidth, sourceHeight).data;
+
+    var firstY = -1;
+    var lastY = -1;
+
+    // loop through each row
+    for(var y = 0; y < sourceHeight; y++) {
+        // loop through each column
+        for(var x = 0; x < sourceWidth; x++) {
+            //var red = data[((sourceWidth * y) + x) * 4];
+            //var green = data[((sourceWidth * y) + x) * 4 + 1];
+            //var blue = data[((sourceWidth * y) + x) * 4 + 2];
+            var alpha = data[((sourceWidth * y) + x) * 4 + 3];
+
+            if(alpha > 0) {
+                firstY = y;
+                // exit the loop
+                break;
+            }
+        }
+        if(firstY >= 0) {
+            // exit the loop
+            break;
+        }
+
+    }
+
+    // loop through each row, this time beginning from the last row
+    for(var y = sourceHeight; y > 0; y--) {
+        // loop through each column
+        for(var x = 0; x < sourceWidth; x++) {
+            var alpha = data[((sourceWidth * y) + x) * 4 + 3];
+            if(alpha > 0) {
+                lastY = y;
+                // exit the loop
+                break;
+            }
+        }
+        if(lastY >= 0) {
+            // exit the loop
+            break;
+        }
+
+    }
+
+    return {
+        // The actual height
+        height: lastY - firstY,
+
+        // The first pixel
+        firstPixel: firstY,
+
+        // The last pixel
+        lastPixel: lastY
+    } 
+
+};
+
+var $canvas = $("#myCanvas");
+var fontStyle = "bold 300px helvetica";
+var fontMeasurement = measureFontHeight($canvas[0], fontStyle);
+
+
 function drawletter(letter) {
   var centerx = (c.width - cx.measureText(letter).width) / 2;
   var centery = c.height / 2;
+  console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
+  console.log(fontMeasurement.height+40)
+  $('.bGif').css('left',centerx+20+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-40+'px')
 };
+
+
+
 
 function showerror(error) {
   mousedown = false;
