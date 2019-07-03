@@ -3,7 +3,7 @@ body {
       margin: 0 auto;
       padding: 0;
       font-family: helvetica,arial,sans-serif;
-      background-image: url('https://bornstaging.github.io/catchit/Alphabet_paint/images/chalkboard_.jpg');
+      background-image: url('../images/chalkboard_.jpg');
       background-size: 100% 100%;
       overflow: hidden;
       -webkit-overflow-scrolling: touch;
