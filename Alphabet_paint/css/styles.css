@@ -228,7 +228,12 @@ body {
             }
           }
         }
-    
+html[data-platform='iPad'] .bGif {
+  top: 38% !important'
+} 
+/* html[data-useragent*='Safari/600.3'] body {
+background-color: deepskyblue;
+} */
   /*   @media screen and (max-width:1440px){
       .bGif {
         top: 26%;
