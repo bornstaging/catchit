@@ -6,7 +6,8 @@ var oldx = null;
 var oldy = null;
 var pixels = null;
 var letterpixels = null;
-
+var count = ["images/B-Writing.gif","images/B-Writing.gif","images/B-Writing.gif"];
+var i = 0;
 var gifX, gifY
 
 $(".pyro").hide();
@@ -14,7 +15,16 @@ $(".pyro").hide();
 $(window).resize(function(){
   setupCanvas();
   resize();
-  console.log("resized");
+ // console.log("resized");
+});
+
+$(document).ready(function(){
+  setInterval(function(){
+    i++;
+    if(i>=count.length){i=0;}
+    //console.log(i);
+    $(".bGif").attr("src",count[i]);
+  },4000);
 });
 
 function resize(){
@@ -118,9 +128,9 @@ var fontMeasurement = measureFontHeight($canvas[0], fontStyle);
 function drawletter(letter) {
   var centerx = (c.width - cx.measureText(letter).width) / 2;
   var centery = c.height / 2;
-  console.log(cx.measureText(letter).width);
+ // console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
-  console.log(fontMeasurement.height+40)
+  //console.log(fontMeasurement.height+40)
   $('.bGif').css('left',centerx+20+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-40+'px')
 };
 
