@@ -23,9 +23,9 @@ body {
   }
   .bGif{
       position: absolute; 
-      margin: 0 auto;
+   /*    margin: 0 auto; */
      /*  max-width: 100%; */
-      vertical-align: middle;
+    /*   vertical-align: middle; */
   }
   
     .pyro{
