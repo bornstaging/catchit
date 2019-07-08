@@ -131,7 +131,12 @@ function drawletter(letter) {
   //console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
   //console.log(fontMeasurement.height+40);
-  $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
+  if($(window).width() < 767 ){
+    console.log($(window).width());
+    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+60+'px').css('width',cx.measureText(letter).width-10+'px');
+  }else{
+    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
+  }
 };
 
 
