@@ -8,11 +8,14 @@ var pixels = null;
 var letterpixels = null;
 var count = ["images/B-Writing.gif","images/B-Writing.gif","images/B-Writing.gif"];
 var i = 0;
-var gifX, gifY
+var gifX, gifY;
+var viewportWidth, viewportHeight;
 
 $(".pyro").hide();
 
 $(window).resize(function(){
+  viewportWidth = $(window).width();
+  viewportHeight = $(window).height();
   setupCanvas();
   resize();
 //  console.log("resized");
@@ -124,14 +127,18 @@ var $canvas = $("#myCanvas");
 var fontStyle = "bold 300px helvetica";
 var fontMeasurement = measureFontHeight($canvas[0], fontStyle);
 
-
 function drawletter(letter) {
   var centerx = (c.width - cx.measureText(letter).width) / 2;
   var centery = c.height / 2;
   //console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
   //console.log(fontMeasurement.height+40);
-  $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
+  if(viewportWidth < 767){
+    console.log(viewportWidth);
+    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+50+'px').css('width',cx.measureText(letter).width-30+'px');
+  }else{
+    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
+  }
 };
 
 
