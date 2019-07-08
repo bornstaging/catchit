@@ -146,7 +146,7 @@ function drawletter(letter) {
    // console.log($(window).width());
     $('.bGif').css('left',centerx+16+'px').css('top',centery-(fontMeasurement.height)+58+'px').css('width',cx.measureText(letter).width-33+'px');
   }else if(OSName == "Linux"){
-    $('.bGif').css('left',centerx+16+'px').css('top',centery-(fontMeasurement.height)+50+'px').css('width',cx.measureText(letter).width-28+'px');
+    $('.bGif').css('left',centerx+16+'px').css('top',centery-(fontMeasurement.height)+45+'px').css('width',cx.measureText(letter).width-25+'px');
   }else{
     $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
   }
