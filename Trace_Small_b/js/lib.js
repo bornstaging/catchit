@@ -144,7 +144,7 @@ function drawletter(letter) {
   console.log(OSName);
   if(OSName == "Mac/iOS"){
     console.log($(window).width());
-    $('.bGif').css('left',centerx+15+'px').css('top',centery-(fontMeasurement.height)+47+'px').css('width',cx.measureText(letter).width-10+'px');
+    $('.bGif').css('left',centerx+15+'px').css('top',centery-(fontMeasurement.height)+47+'px').css('width',cx.measureText(letter).width+'px');
   }else{
     $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
   }
