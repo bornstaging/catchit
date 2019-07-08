@@ -131,7 +131,7 @@ function drawletter(letter) {
  // console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
   //console.log(fontMeasurement.height+40)
-  if($(window).width() < 1024 ){
+  if(OSName == "Mac/iOS"){
     console.log($(window).width());
     $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+42+'px').css('width',cx.measureText(letter).width-30+'px');
   }else{
