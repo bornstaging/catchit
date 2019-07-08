@@ -12,7 +12,7 @@ body {
   canvas {
       display: block;
       background:transparent;
-      max-width:100%;
+  /*     max-width:100%; */
     
   } 
   .chalkboard{
@@ -24,7 +24,7 @@ body {
   .bGif{
       position: absolute; 
       margin: 0 auto;
-      max-width: 100%;
+     /*  max-width: 100%; */
       vertical-align: middle;
   }
   
