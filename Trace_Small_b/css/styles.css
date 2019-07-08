@@ -12,7 +12,7 @@ body {
   canvas {
       display: block;
       background:transparent;
-  /*     max-width:100%; */
+      max-width:100%;
     
   } 
   .chalkboard{
@@ -23,9 +23,9 @@ body {
   }
   .bGif{
       position: absolute; 
-   /*    margin: 0 auto; */
-     /*  max-width: 100%; */
-    /*   vertical-align: middle; */
+      margin: 0 auto;
+      max-width: 100%;
+      vertical-align: middle;
   }
   
     .pyro{
@@ -213,6 +213,13 @@ body {
       80%, 99.9% {
         margin-top: 30%;
         margin-left: 80%; } }
+
+
+@media screen and (max-width : 1024px) {
+  .bGif{
+    top:30% !important;
+  }
+}
 
 
 /*         @supports (-webkit-overflow-scrolling: touch) {
