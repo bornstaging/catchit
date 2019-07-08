@@ -133,7 +133,7 @@ function drawletter(letter) {
   //console.log(fontMeasurement.height+40);
   if($(window).width() < 1024 ){
     console.log($(window).width());
-    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+40+'px').css('width',cx.measureText(letter).width-25+'px');
+    $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+40+'px').css('width',cx.measureText(letter).width-20+'px');
   }else{
     $('.bGif').css('left',centerx+17+'px').css('top',centery-(fontMeasurement.height)+30+'px').css('width',cx.measureText(letter).width-30+'px');
   }
