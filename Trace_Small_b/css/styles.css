@@ -215,12 +215,12 @@ body {
         margin-left: 80%; } }
 
 
-@media screen and (max-width : 1024px) {
+/* @media screen and (max-width : 1024px) {
   .bGif{
     top:30% !important;
   }
 }
-
+ */
 
 /*         @supports (-webkit-overflow-scrolling: touch) {
           @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
