@@ -25,14 +25,12 @@ $(".pyro").hide();
 $(window).resize(function(){
   setupCanvas();
   resize();
- // console.log("resized");
 });
 
 $(document).ready(function(){
   setInterval(function(){
     i++;
     if(i>=count.length){i=0;}
-    //console.log(i);
     $(".bGif").attr("src",count[i]);
   },4000);
 });
@@ -68,10 +66,6 @@ var measureFontHeight = function (canvas, fontStyle) {
     context.textAlign = "left";
     context.textBaseline = "top";
     context.fillText("a", 25, 5);
-
-    // returns an array containing the sum of all pixels in a canvas
-    // * 4 (red, green, blue, alpha)
-    // [pixel1Red, pixel1Green, pixel1Blue, pixel1Alpha, pixel2Red ...]
     var data = context.getImageData(0, 0, sourceWidth, sourceHeight).data;
 
     var firstY = -1;
@@ -81,9 +75,6 @@ var measureFontHeight = function (canvas, fontStyle) {
     for(var y = 0; y < sourceHeight; y++) {
         // loop through each column
         for(var x = 0; x < sourceWidth; x++) {
-            //var red = data[((sourceWidth * y) + x) * 4];
-            //var green = data[((sourceWidth * y) + x) * 4 + 1];
-            //var blue = data[((sourceWidth * y) + x) * 4 + 2];
             var alpha = data[((sourceWidth * y) + x) * 4 + 3];
 
             if(alpha > 0) {
@@ -138,11 +129,8 @@ var fontMeasurement = measureFontHeight($canvas[0], fontStyle);
 function drawletter(letter) {
   var centerx = (c.width - cx.measureText(letter).width) / 2;
   var centery = c.height / 2;
- // console.log(cx.measureText(letter).width);
   cx.fillText(letter, centerx, centery);
-  //console.log(fontMeasurement.height+40)
   if(OSName == "Mac/iOS"){
-   // console.log($(window).width());
     $('.bGif').css('left',centerx+23+'px').css('top',centery-(fontMeasurement.height)+55+'px').css('width',cx.measureText(letter).width-45+'px');
   }else if(OSName == "Linux"){
     $('.bGif').css('left',centerx+20+'px').css('top',centery-(fontMeasurement.height)+47+'px').css('width',cx.measureText(letter).width-35+'px');
@@ -151,18 +139,13 @@ function drawletter(letter) {
   }
 }
 
-
-
-
 function showerror(error) {
   mousedown = false;
-  //alert(error);
 };
 
 function paint(x, y) {
   var colour = getpixelcolour(x, y);
   if (colour.a === 0) {
-    //showerror('you are outside');
     return false;
   } else {
     cx.beginPath();
@@ -203,7 +186,6 @@ function getpixelamount(r, g, b) {
 
 function pixelthreshold() {
   if (getpixelamount(216, 216, 42) / letterpixels > 0.35) {
-    //alert('you got it!');
     $(".pyro").show();
   }
 };
@@ -213,7 +195,6 @@ function onmousedown(ev) {
   ev.preventDefault();
 };
 function onmouseup(ev) {
- // alert("start");
   mousedown = false;
   pixelthreshold();
   ev.preventDefault();
@@ -222,7 +203,6 @@ function onmousemove(ev) {
   if(ev.type === "touchmove"){
       var x = ev.touches[0].clientX;
       var y = ev.touches[0].clientY;
-     // alert(x + "-----" + y);
       paint(x, y);
   } else {
       var x = ev.clientX;
@@ -232,26 +212,6 @@ function onmousemove(ev) {
       }
   }
 };
-
-/* $("canvas").on('touchmove',function(e){
-  e.preventDefault();
-  alert("hi");
-  onmousemove(e);
-  alert("bye");
-});
-$("canvas").on('touchend',function(e){
-  e.preventDefault();
-  onmousedown(e);
-});
-$("canvas").on('touchstart',function(e){
-  alert("hi");
-  e.preventDefault();
-  onmouseup(e);
-  alert("bye");
-});
-$(".bGif").on('touchstart',function(){
-  $(".bGif").hide();
-}); */
 c.addEventListener('mousedown', onmousedown, false);
 c.addEventListener('mouseup', onmouseup, false);
 c.addEventListener('mousemove', onmousemove, false);
