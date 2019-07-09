@@ -38,13 +38,13 @@ $(document).ready(function(){
 });
 
 function resize(){
-  gif.width = window.innerWidth;
-  gif.height = window.innerHeight;
+  gif.width = document.body.getBoundingClientRect().width;
+  gif.height = document.body.getBoundingClientRect().height;
 }
  
 function setupCanvas() {
-  c.height = window.innerHeight;
-  c.width = window.innerWidth;
+  c.height = document.body.getBoundingClientRect().height;
+  c.width = document.body.getBoundingClientRect().width;
   cx.lineWidth = 20;
   cx.lineCap = 'round';
   cx.strokeStyle = 'rgb(216, 216, 42)';
