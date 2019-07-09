@@ -38,13 +38,13 @@ $(document).ready(function(){
 });
 
 function resize(){
-  gif.width = screen.width;
-  gif.height = screen.height;
+  gif.width = window.innerWidth;
+  gif.height = window.innerHeight;
 }
  
 function setupCanvas() {
-  c.height = screen.height;
-  c.width = screen.width;
+  c.height = window.innerHeight;
+  c.width = window.innerWidth;
   cx.lineWidth = 20;
   cx.lineCap = 'round';
   cx.strokeStyle = 'rgb(216, 216, 42)';
