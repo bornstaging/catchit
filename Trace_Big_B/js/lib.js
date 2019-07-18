@@ -29,8 +29,10 @@ if (window.navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
 $(".pyro").hide();
 
 $(window).resize(function() {
-  setupCanvas();
   resize();
+  $(".pyro").hide();
+  setupCanvas(0);
+  $(".bGif").show();
 });
 
 $(document).ready(function() {
