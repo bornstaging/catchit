@@ -8,6 +8,7 @@ var pixels = null;
 var letterpixels = null;
 var count = ["images/b.gif", "images/b.gif", "images/b.gif"];
 var i = 0;
+var countR = 0;
 var gifX, gifY;
 var OSName = "Unknown";
 if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1)
@@ -29,7 +30,12 @@ if (window.navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
 $(".pyro").hide();
 
 $(window).resize(function() {
-  setupCanvas();
+  if (countR < 1) {
+    setupCanvas(0);
+    countR++;
+  } else {
+    setupCanvas();
+  }
   resize();
 });
 
