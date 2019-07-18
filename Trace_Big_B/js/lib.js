@@ -48,14 +48,24 @@ function resize() {
   gif.height = window.innerHeight;
 }
 
-function setupCanvas() {
+function setupCanvas(ele) {
+  var ele = ele;
+  //console.log(ele);
+  var rgb = "";
+  if (ele == 1) {
+    rgb = "rgb(204, 255, 255)";
+  } else if (ele == 0) {
+    rgb = "rgba(204, 255, 255, 0)";
+  } else {
+    rgb = "rgb(204, 255, 255)";
+  }
   c.height = window.innerHeight;
   c.width = window.innerWidth;
   cx.lineWidth = 20;
   cx.lineCap = "round";
   cx.strokeStyle = "rgb(216, 216, 42)";
   cx.font = "bold 300px helvetica";
-  cx.fillStyle = "rgb(204, 255, 255)";
+  cx.fillStyle = rgb;
   cx.textBaseline = "middle";
   drawletter("B");
   pixels = cx.getImageData(0, 0, c.width, c.height);
@@ -235,7 +245,8 @@ c.addEventListener("touchend", onmousedown, false);
 c.addEventListener("touchstart", onmouseup, false);
 c.addEventListener("touchmove", onmousemove, false);
 
-setupCanvas();
+setupCanvas(0);
 $(".bGif").on("click", function() {
   $(".bGif").hide();
+  setupCanvas(1);
 });

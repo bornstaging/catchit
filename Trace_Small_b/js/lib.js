@@ -34,6 +34,7 @@ $(window).resize(function() {
 });
 
 $(document).ready(function() {
+  // $canvas.hide();
   setInterval(function() {
     i++;
     if (i >= count.length) {
@@ -48,14 +49,24 @@ function resize() {
   gif.height = window.innerHeight;
 }
 
-function setupCanvas() {
+function setupCanvas(ele) {
+  var ele = ele;
+  //console.log(ele);
+  var rgb = "";
+  if (ele == 1) {
+    rgb = "rgb(204, 255, 255)";
+  } else if (ele == 0) {
+    rgb = "rgba(204, 255, 255, 0)";
+  } else {
+    rgb = "rgb(204, 255, 255)";
+  }
   c.height = window.innerHeight;
   c.width = window.innerWidth;
   cx.lineWidth = 20;
   cx.lineCap = "round";
-  cx.strokeStyle = "rgb(216, 216, 42)";
+  cx.strokeStyle = "rgba(216, 216, 42)";
   cx.font = "bold 300px helvetica";
-  cx.fillStyle = "rgb(204, 255, 255)";
+  cx.fillStyle = rgb;
   cx.textBaseline = "middle";
   drawletter("b");
   pixels = cx.getImageData(0, 0, c.width, c.height);
@@ -137,14 +148,14 @@ function drawletter(letter) {
   console.log(OSName);
   if (OSName == "Mac/iOS") {
     $(".bGif")
-      .css("left", centerx + 16 + "px")
-      .css("top", centery - fontMeasurement.height + 58 + "px")
-      .css("width", cx.measureText(letter).width - 33 + "px");
+      .css("left", centerx + 15 + "px")
+      .css("top", centery - fontMeasurement.height + 25 + "px")
+      .css("width", cx.measureText(letter).width - 5 + "px");
   } else if (OSName == "Linux") {
     $(".bGif")
-      .css("left", centerx + 16 + "px")
-      .css("top", centery - fontMeasurement.height + 45 + "px")
-      .css("width", cx.measureText(letter).width - 25 + "px");
+      .css("left", centerx + 15 + "px")
+      .css("top", centery - fontMeasurement.height + 25 + "px")
+      .css("width", cx.measureText(letter).width - 5 + "px");
   } else {
     $(".bGif")
       .css("left", centerx + 15 + "px")
@@ -237,7 +248,19 @@ c.addEventListener("touchend", onmousedown, false);
 c.addEventListener("touchstart", onmouseup, false);
 c.addEventListener("touchmove", onmousemove, false);
 
-setupCanvas();
+setupCanvas(0);
 $(".bGif").on("click", function() {
   $(".bGif").hide();
+  setupCanvas(1);
+  /*  c.height = window.innerHeight;
+  c.width = window.innerWidth;
+  cx.lineWidth = 20;
+  cx.lineCap = "round";
+  cx.strokeStyle = "rgba(216, 216, 42)";
+  cx.font = "bold 300px helvetica"; */
+  /* cx.fillStyle = "rgba(204, 255, 255)";
+  cx.textBaseline = "middle";
+  drawletter("b");
+  pixels = cx.getImageData(0, 0, c.width, c.height);
+  letterpixels = getpixelamount(204, 255, 255); */
 });
