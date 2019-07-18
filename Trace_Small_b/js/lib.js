@@ -33,6 +33,7 @@ $(window).resize(function() {
   if (countR < 1) {
     setupCanvas(0);
     countR++;
+    console.log(countR);
   } else {
     setupCanvas();
   }
